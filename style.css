@@ -1,0 +1,18 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Lora:wght@600;700&display=swap');
+
+body{
+    font-family: "Lora", sans-serif;
+}
+h1{
+    font-size: 1.5rem;
+}
+.navbar, footer, .card-body, .greybg{
+    background:#D3D3D3;
+    ;
+}
+#productList{
+    display: flex;
+    justify-content: center;
+    flex-flow: wrap;
+}
