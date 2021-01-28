@@ -1,18 +1,23 @@
-var xhr = new XMLHttpRequest();
-xhr.onreadystatechange = function(req) {
-    if (req.target.readyState == XMLHttpRequest.DONE && req.target.status == 200) {
-       var cameras = JSON.parse(req.target.responseText);
-       console.log("connecté");
-       this.createCameras(cameras);
+async function CamerasList() {
+    try {
+        let response = await fetch("http://localhost:3000/api/cameras" );
+        if (response.ok) {
+            let cameras = await response.json();
+            console.log(cameras);
+            camerasList(cameras);
+        } else {
+            console.error('server return: ', response.status)
+        }
+    } catch (e) {
+        console.log(e);
     }
-}.bind(this);
-xhr.open("GET", "http://localhost:3000/api/cameras");
-xhr.send();
+}
+CamerasList();
 
-function createCameras(cameras) {
+function camerasList(createCameras) {
     var productList = document.querySelector("#productList");
 
-    cameras.forEach((camera)=>{
+    createCameras.forEach((camera)=>{
     //html building elements//
     var productContainer = document.createElement("div");
     var productLink = document.createElement("a");
@@ -23,7 +28,7 @@ function createCameras(cameras) {
     var productPrice = document.createElement("div", "class");
     var productDescription = document.createElement("div");
     // elements attribute//
-    productContainer.setAttribute("class","col-5 border-secondary p-0 m-2 greybg");
+    productContainer.setAttribute("class","col-4 border-secondary p-0 m-5 greybg ");
     cardImg.setAttribute("class","card-img-top img-fluid");
     cardImg.setAttribute("src",camera.imageUrl);
     productCardBody.setAttribute("class","card-body text-center greybg");
@@ -31,7 +36,7 @@ function createCameras(cameras) {
     productName.setAttribute("class","font-weight-bold");
     productPrice.setAttribute("class","font-weight-bold");
     productDescription.setAttribute("class","mt-3 text-left");
-    productLink.setAttribute("href","product.html?id" + camera._id);
+    productLink.setAttribute("href","product.html?id=" + camera._id);
     productLink .setAttribute("class","btn btn-dark mt-3");
     //elmements html creation//
     productList.appendChild(productContainer);

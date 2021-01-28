@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link rel="stylesheet" href="./style.css">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+        
+    <title>Orinoco</title>
+</head>
+<body>
+    <header>
+        <div class="container-fluid">
+                <div class="row">
+                    <nav class="col navbar navbar-expand-lg navbar-light">
+                        <a class="navbar-brand" href="index.html">
+                            <img src="./images/logoprop.png" width="100" height="40" alt="Orinoco logo">
+                        </a>
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarContent">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div id="navbarContent" class="collapse navbar-collapse justify-content-end">
+                            <ul class="navbar-nav d-flex align-items-center justify-content-between">
+                                <li class="nav-item">
+                                    <a class="nav-link active" href="index.html">Accueil</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </nav>
+                    <div class="d-flex align-items-center greybg pr-3">
+                        <a class="shoppingcard" href="cart.html">
+                            <img src="./images/cart.png" width="30" height="30" alt="panier">
+                        </a>
+                    </div>
+                </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12 p-0">
+                    <div class="hero">
+                        <img src="./images/orinoco-banner.jpg" width="100%" alt="appareil photo vintage">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <main>
+    <div class="container-fluid">
+            <div class="row text-center">
+                <div class="col-5 greybg mx-auto my-3 P-0">
+                    <form class="greybg">
+                        <h5 class="font-weight-bold text-center mt-2">Informations personnelles</h5>
+                        <div class="form p-3">
+                            <input type="email" class="form-control" id="exampleInputEmail" aria-describedby="emailHelp"
+                                placeholder="Adresse Email">
+                        </div>
+                        <div class="d-flex">
+                            <div class="form p-3">
+                                <input type="text" class="form-control" id="Name" placeholder="Nom">
+                            </div>
+                            <div class="form p-3">
+                                <input type="text" class="form-control" id="Firstname" placeholder="Prénom">
+                            </div>
+                        </div>
+                        <div class="form p-3">
+                            <input type="text" class="form-control" id="Nom" placeholder="Numéro de téléhphone (facultatif)">
+                        </div>
+                        <div class="form p-3">
+                            <input type="text" class="form-control" id="Adresse"
+                                placeholder="Adresse (rue, n° de maison, appart,...">
+                        </div>
+                        <div class="d-flex">
+                            <div class="form p-3">
+                                <input type="text" class="form-control" id="CP" placeholder="Code Postal">
+                            </div>
+                            <div class="form p-3">
+                                <input type="text" class="form-control" id="City" placeholder="Ville">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div id="cartbasket" class="col-5 greybg mx-auto my-3 p-0 d-flex flex-column justify-content-between">
+                    <div class="cart-items">
+                        <div class="cart row">
+                            <div class="col-4 item">
+                                <h5 class="font-weight-bold text-center mt-2">Articles</h5>
+                                <img id="ItemCartImg" class="cart-item-image" width="100" height="100" src="" alt="camera-model">
+                                <span id="itemTitle" class="cart-item-title"></span>
+                            </div>
+                            <div class="col-4 price">
+                                <h5 class="font-weight-bold text-center mt-2">Prix</h5>
+                                <span id="itemPrice" class="cart-item-title"></span>
+                            </div>
+                            <div class="col-4 qty">
+                                <h5 class="font-weight-bold text-center mt-2">Qantité</h5>
+                                <div class="qty-suppr d-flex justify-content-between">
+                                <input id="itemQty" class="cart-quantity-input" type="number" value="1"></span>
+                                <button id="btnsuppr" class="btn btn-danger" type="button">Supprimer</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="purchase text-center">
+                    <button class="btn btn-dark my-2 ">Commander</button>
+                    </div>
+                </div>
+            </div>
+    </div>
+    </main>
+    <div class="container-fluid">
+            <div class="row">
+                <footer class="col-12 P-0">
+                    <ul class="text-center text-dark dark-link">
+                        <li class="list-unstyled"><a class="text-dark" href="#">Mentions legales</a></li>
+                        <li class="list-unstyled"><a class="text-dark" href="#">Nous contacter</a></li>
+                        <li class="list-unstyled"><p>Orinoco 2021 tous droits réservés - developpenemt <a class="text-dark" href="www.devbymika.com">DevByMika</a></p></li>
+                    </ul>
+                </footer>
+            </div>
+    </div>
+    <script type="text/javascript" src="./js/cart.js"></script>
+</body>
+</html>

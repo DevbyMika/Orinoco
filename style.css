@@ -7,6 +7,9 @@ body{
 h1{
     font-size: 1.5rem;
 }
+h5{
+    text-decoration: underline;
+}
 .navbar, footer, .card-body, .greybg{
     background:#D3D3D3;
     ;
@@ -15,4 +18,12 @@ h1{
     display: flex;
     justify-content: center;
     flex-flow: wrap;
+}
+#itemQty{
+    width: 30%;
+}
+#btnsuppr{
+    width: 60%;
+    font-size: 0.8rem;
+    margin-right: 5px;
 }
