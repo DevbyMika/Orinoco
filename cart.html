@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -40,6 +40,7 @@
                         <a class="shoppingcard" href="cart.html">
                             <img src="./images/cart.png" width="30" height="30" alt="panier">
                         </a>
+                        <p id="itemsCount" class="m-0">0</p>
                     </div>
                 </div>
         </div>
@@ -89,37 +90,33 @@
                     </form>
                 </div>
                 <div id="cartbasket" class="col-5 greybg mx-auto my-3 p-0 d-flex flex-column justify-content-between">
-                    <div class="cart-items">
-                        <div class="cart row">
-                            <div class="col-4 item">
-                                <h5 class="font-weight-bold text-center mt-2">Articles</h5>
-                                <img id="ItemCartImg" class="cart-item-image" width="100" height="100" src="" alt="camera-model">
-                                <span id="itemTitle" class="cart-item-title"></span>
-                            </div>
-                            <div class="col-4 price">
-                                <h5 class="font-weight-bold text-center mt-2">Prix</h5>
-                                <span id="itemPrice" class="cart-item-title"></span>
-                            </div>
-                            <div class="col-4 qty">
-                                <h5 class="font-weight-bold text-center mt-2">Qantité</h5>
-                                <div class="qty-suppr d-flex justify-content-between">
-                                <input id="itemQty" class="cart-quantity-input" type="number" value="1"></span>
-                                <button id="btnsuppr" class="btn btn-danger" type="button">Supprimer</button>
-                                </div>
+                    <div class="col-12 d-flex flex-column justify-content-between">
+                        <div class="col-12">
+                            <div id="productCard" class="d-flex align-content-between"></div>
+                            <div class="d-flex justify-content-between px-3">
+                                <span id="title" class="font-weight-bold text-center mt-2 ">Articles</span>
+                                <span id="title" class=" font-weight-bold text-center mt-2 ">Prix</span>
+                                <span id="title" class=" font-weight-bold text-center mt-2 ">Qantité</span>
                             </div>
                         </div>
-                    </div>
-                    <div class="purchase text-center">
-                    <button class="btn btn-dark my-2 ">Commander</button>
                     </div>
                 </div>
             </div>
     </div>
+    <div class="container-fluid p-0">
+    <div class="row p-0">
+        <div class="col-12 p-0">
+            <div class="purchase col-12 text-center">
+                <button class="btn btn-dark my-2 ">Commander</button>
+            </div>
+        </div>
+    </div>
+    </div>
     </main>
     <div class="container-fluid">
             <div class="row">
-                <footer class="col-12 P-0">
-                    <ul class="text-center text-dark dark-link">
+                <footer class="col-12">
+                    <ul class="text-center text-dark dark-link px-0">
                         <li class="list-unstyled"><a class="text-dark" href="#">Mentions legales</a></li>
                         <li class="list-unstyled"><a class="text-dark" href="#">Nous contacter</a></li>
                         <li class="list-unstyled"><p>Orinoco 2021 tous droits réservés - developpenemt <a class="text-dark" href="www.devbymika.com">DevByMika</a></p></li>

@@ -36,10 +36,11 @@
                             </ul>
                         </div>
                     </nav>
-                    <div class="d-flex align-items-center greybg pr-3">
-                        <a class="shoppingcard" href="cart.html">
+                    <div id="shoppingCard"class="d-flex align-items-center greybg pr-3">
+                        <a  id="shoppingCard" class="shoppingcard-icon" href="cart.html">
                             <img src="./images/cart.png" width="30" height="30" alt="panier">
                         </a>
+                        <p id="shoppingCount" class="m-0">0</p>
                     </div>
                 </div>
         </div>
@@ -55,6 +56,20 @@
     </header>
     <main>
     <div id="productSheet" class="container-fluid"> </div>
+    <div id="modal" class="modal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header mx-auto">
+                    <h2>Produit ajouté au panier !</h2>
+                </div>
+                <div class="modal-body text-center d-flex flex-column mx-auto">
+                    <p>Que souhaitez vous faire ?</p>
+                    <a id="modalbtn" href="index.html" class="btn bg-secondary">Continuez mes achats</a>
+                    <a id="modalbtn" href="cart.html" class="btn btn-dark mt-2">Aller au panier</a>
+                </div>
+            </div>
+        </div>
+    </div>
     </main>
     <div class="container-fluid">
             <div class="row">

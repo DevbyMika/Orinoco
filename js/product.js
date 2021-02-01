@@ -1,14 +1,11 @@
 async function displayProduct() {
     const urlSearchId = (new URL(window.location).searchParams);
     productId = urlSearchId.get("id")
-    console.log(productId);
     try {
         let url = "http://localhost:3000/api/cameras/" + productId;
-        console.log(url)
         let response = await fetch(url);
         if (response.ok) {
             let cameraProduct = await response.json();
-            console.log(cameraProduct);
             createProductCard(cameraProduct);
         } else {
             console.error('server return: ', response.status)
@@ -20,13 +17,13 @@ async function displayProduct() {
 displayProduct();
 
 
-
+////Product cameras sheet creation//
 
 async function createProductCard(product) {
     
      var productSheet = document.querySelector("#productSheet");
-          
-    //Product cameras sheet creation//
+    
+    // DOM initialization
 
     var productContainer = document.createElement("div");
     var productPictContainer = document.createElement("div");
@@ -48,6 +45,7 @@ async function createProductCard(product) {
     productPicture.setAttribute("src",product.imageUrl);
     productPicture.setAttribute("class", "card-img-top img-flui")
     productDescContainer.setAttribute("class","col-6 p-3 d-flex flex-column justify-content-between");
+    productDescContainer.setAttribute("id","ProductContainer");
     productRef.setAttribute("class","d-flex justify-content-between");
     productName.setAttribute("class","font-weight-bold");
     productPrice.setAttribute("class","font-weight-bold");
@@ -60,7 +58,10 @@ async function createProductCard(product) {
     optionLenseBtn.setAttribute("class","dropdown-menu");
     optionLenseBtn.setAttribute("id","dropdownItem");
     addToCardBtn.setAttribute("href","cart.html");
-    addToCardBtn.setAttribute("class","btn btn-dark")
+    addToCardBtn.setAttribute("class","btn btn-dark");
+    addToCardBtn.setAttribute("id","addToCard");
+    addToCardBtn.setAttribute("data-toggle","modal");
+    addToCardBtn.setAttribute("data-target","#modal");
 
     //html display card product//
 
@@ -95,5 +96,20 @@ async function createProductCard(product) {
             optionLenseBtn.textContent = productLenses[i];
         })   
     }
+
+    // add to card storage product
+    
+        let cameraSlct = {
+        id: product._id,
+        name: product.name,
+        price: product.price,
+        url: product.imageUrl,
+        descritpion: product.description,
+        qty : 1
+    };
+    addToCardBtn.addEventListener("click", function(){
+    var productStorage = JSON.stringify(cameraSlct)
+    localStorage.setItem("productStorage", productStorage);
+    });
 };
 

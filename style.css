@@ -7,8 +7,9 @@ body{
 h1{
     font-size: 1.5rem;
 }
-h5{
+#title{
     text-decoration: underline;
+    font-size: 20px;
 }
 .navbar, footer, .card-body, .greybg{
     background:#D3D3D3;
@@ -27,3 +28,4 @@ h5{
     font-size: 0.8rem;
     margin-right: 5px;
 }
+
