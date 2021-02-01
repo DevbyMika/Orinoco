@@ -1,2 +1,0 @@
-window.localStorage.getItem("productStorage");
-

@@ -28,4 +28,14 @@ h1{
     font-size: 0.8rem;
     margin-right: 5px;
 }
-
+#qty{
+    width:2.5rem;
+    height: 38px;
+    margin: 0 10px 0 10px;
+}
+.qtytitle{
+    display: block;
+}
+#addToCard{
+    height: 38px;
+}

@@ -1,19 +1,3 @@
-async function CamerasList() {
-    try {
-        let response = await fetch("http://localhost:3000/api/cameras" );
-        if (response.ok) {
-            let cameras = await response.json();
-            console.log(cameras);
-            camerasList(cameras);
-        } else {
-            console.error('server return: ', response.status)
-        }
-    } catch (e) {
-        console.log(e);
-    }
-}
-CamerasList();
-
 function camerasList(createCameras) {
     var productList = document.querySelector("#productList");
 
