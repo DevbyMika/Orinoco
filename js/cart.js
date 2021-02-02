@@ -1,55 +1,50 @@
-var getProductStorage = localStorage.getItem('productStorage');
-    var productStorage = JSON.parse(getProductStorage);
-    console.log(productStorage);
-
-function displayBasket (productStorage){
+let productStorage = localStorage.getItem('orinocoStorage');
+console.log(productStorage)
 
 
-    const productCard = document.querySelector("#productCard");
-
-    
-    var productImg = document.querySelector(".productPicture");
-    var productTitle = document.querySelector(".titleproduct");
-    var productPrice = document.querySelector(".priceproduct");
-
-    productImg.innerHTML = productStorage.url;
-    productTitle.textContent = productStorage.name;
-    productPrice.textContent = productStorage.price / 100 + " €";
-
-
-
-    productStorage.forEach(()=>{
+function displayBasket(productStorage) {
     
     //DOM initialisation 
-        var RowContainer = document.createElement("div");
-        var pictureProduct = document.createElement("img");
-        var titleProduct = document.createElement("span");
-        var priceProduct = document.createElement("span");
-        var quantityProduct = document.createElement("input");
-        var removeRow = document.createElement("button");
+    const productCard = document.querySelector("#shoppingReminder");
+    
+        productStorage.forEach((product) => {
+        let storageContainer = document.createElement("div");
+        let pictureProduct = document.createElement("img");
+        let titleProduct = document.createElement("span");
+        let lenseChoice = document.createElement("span");
+        let priceProduct = document.createElement("span");
+        let quantityProduct = document.createElement("form-group");
+        let quantitydetails = document.createElement("input");
+        let removeRow = document.createElement("button");
     
     // html attribution
-        RowContainer.setAttribute("class","col-12 d-flex");
-        pictureProduct.setAttribute("src",productStorage.url);
-        titleProduct.setAttribute("div");
-        priceProduct.setAttribute("div");
+        storageContainer.setAttribute("class","col-12 d-flex");
+        pictureProduct.setAttribute("src",product.url);
+        titleProduct.setAttribute("class");
+        lenseChoice.setAttribute("p");
+        priceProduct.setAttribute("class");
         quantityProduct.setAttribute("type","number");
-        quantityProduct.setAttribute("value","1");
+        quantityProduct.setAttribute("value",product.qty);
         removeRow.setAttribute("class","btn btn-danger");
 
     // html creation
-        productCard.appendChild(RowContainer);
-        RowContainer.appendChild(pictureProduct);
-        RowContainer.appendChild(titleProduct);
-        RowContainer.appendChild(priceProduct);
-        RowContainer.appendChild(quantityProduct);
-        RowContainer.appendChild(removeRow);
+        productCard.appendChild(storageContainer);
+        storageContainer.appendChild(pictureProduct);
+        storageContainer.appendChild(titleProduct);
+        storageContainer.appendChild(lenseChoice);
+        storageContainer.appendChild(priceProduct);
+        storageContainer.appendChild(quantityProduct);
+        quantityProduct.appendChild(quantitydetails);
+        storageContainer.appendChild(removeRow);
 
         titleProduct.textContent = product.name;
+        lenseChoice.textContent = product.lenses;
         priceProduct.textContent = product.price / 100 + " €";
+
         removeRow.textContent = "supprimer";
     });
 };
+
 
 
 

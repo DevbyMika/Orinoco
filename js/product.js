@@ -2,26 +2,27 @@
 
 async function createProductCard(product) {
     
-     var productSheet = document.querySelector("#productSheet");
-    
+    const productSheet = document.querySelector("#productSheet");
+    product.price = parseFloat(product.price) / 100; // round price 
+
     // DOM initialization
 
-    var productContainer = document.createElement("div");
-    var productPictContainer = document.createElement("div");
-    var productPicture = document.createElement("img");
-    var productDescContainer = document.createElement("div");
-    var productRef = document.createElement("div");
-    var productName = document.createElement("div");
-    var productPrice = document.createElement("div");
-    var productDescription = document.createElement("p");
-    var containerBtn = document.createElement("div");
-    var lensesForm = document.createElement("div");
-    var lensesLabel = document.createElement("label");
-    var lensesOption = document.createElement("select");
-    var quantityForm = document.createElement("div")
-    var quantityLabel = document.createElement("label");
-    var quantityBox = document.createElement("input");
-    var addToCardBtn = document.createElement("button");
+    let productContainer = document.createElement("div");
+    let productPictContainer = document.createElement("div");
+    let productPicture = document.createElement("img");
+    let productDescContainer = document.createElement("div");
+    let productRef = document.createElement("div");
+    let productName = document.createElement("div");
+    let productPrice = document.createElement("div");
+    let productDescription = document.createElement("p");
+    let containerBtn = document.createElement("div");
+    let lensesForm = document.createElement("div");
+    let lensesLabel = document.createElement("label");
+    let lensesOption = document.createElement("select");
+    let quantityForm = document.createElement("div")
+    let quantityLabel = document.createElement("label");
+    let quantityBox = document.createElement("input");
+    let addToCardBtn = document.createElement("button");
 
     //attributes card product //
     productContainer.setAttribute("class","row d-flex greybg m-4");
@@ -33,10 +34,12 @@ async function createProductCard(product) {
     productRef.setAttribute("class","d-flex justify-content-between");
     productName.setAttribute("class","font-weight-bold");
     productPrice.setAttribute("class","font-weight-bold");
+    productPrice.setAttribute("id","price");
     containerBtn.setAttribute("class","d-flex justify-content-between align-items-center");
     lensesForm.setAttribute("class", "form-group");
+    lensesOption.setAttribute("id", "lenseSelection");
     lensesOption.setAttribute("class", "form-control");
-    quantityForm.setAttribute("class", "form-group");
+    quantityForm.setAttribute("class", "form-group text-center");
     quantityLabel.setAttribute("class", "qtytitle");
     quantityBox.setAttribute("type","number")
     quantityBox.setAttribute("value","1")
@@ -69,33 +72,54 @@ async function createProductCard(product) {
 
     //text content product sheet//
     productName.textContent = product.name;
-    productPrice.textContent = (product.price * quantityBox.value) / 100 + " €";
     productDescription.textContent= product.description;
+    productPrice.textContent = product.price + "€";
     lensesLabel.textContent="Lentilles"
     quantityLabel.textContent="Qté"
     addToCardBtn.textContent = "Ajouter au panier";
+    
+
+    // Calc price + quantity total
+
+    quantityBox.addEventListener("click",function(){
+        let price = product.price;
+        let qtyBox  = quantityBox.value;
+        productPrice.innerHTML = (price*=qtyBox) + "€";
+    });
+
+    // select lenses choice
 
     var productLenses = product.lenses;
     for(var i = 0; i < productLenses.length; i++){
         var optionLense = document.createElement("option");
         optionLense.textContent = productLenses[i];
         lensesOption.appendChild(optionLense);
-        optionLense.textContent = productLenses[i];//
+        optionLense.textContent = productLenses[i];
         }   
 
-    // add to card storage product
-    
-    let cameraSlct = {
-    id: product._id,
-    name: product.name,
-    price: product.price,
-    url: product.imageUrl,
-    descritpion: product.description,
-    qty : 1
-    };
-    addToCardBtn.addEventListener("click", function(){
-    var productStorage = JSON.stringify(cameraSlct)
-    localStorage.setItem("productStorage", productStorage);
+    addToCardBtn.addEventListener("click", function() {
+    let storage = window.localStorage.getItem("orinocoStorage") //storage space creation
+        if (!storage) {
+            storage = {
+                products: [],
+            }
+        } else {
+            storage = JSON.parse(storage) //JSON exctract.
+        }
+        storage.products.push({
+            id: product._id,
+            name: product.name,
+            lenses : lenseSelection.value,
+            price: product.price * quantityBox.value,
+            url: product.imageUrl,
+            descritpion: product.description,
+            qty : quantityBox.value
+            });
+        window.localStorage.setItem("orinocoStorage", JSON.stringify(storage))
+        console.log("localStorage", storage.products)
     });
 };
+
+
+
 
