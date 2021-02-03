@@ -1,49 +1,72 @@
-let productStorage = localStorage.getItem('orinocoStorage');
-console.log(productStorage)
+let getproductStorage = localStorage.getItem('orinocoStorage');
+let productStorage = JSON.parse(getproductStorage);
+console.log(productStorage);
 
 
-function displayBasket(productStorage) {
-    
+const CartContent = () => {
+
+    let cartProduct= productStorage.products;
+    cartProduct.forEach((result) => {   
     //DOM initialisation 
-    const productCard = document.querySelector("#shoppingReminder");
-    
-        productStorage.forEach((product) => {
-        let storageContainer = document.createElement("div");
-        let pictureProduct = document.createElement("img");
-        let titleProduct = document.createElement("span");
-        let lenseChoice = document.createElement("span");
-        let priceProduct = document.createElement("span");
-        let quantityProduct = document.createElement("form-group");
-        let quantitydetails = document.createElement("input");
-        let removeRow = document.createElement("button");
+    let cardContainer = document.querySelector("#shoppingReminder");
+    let storageContainer = document.createElement("div");
+    let pictureProduct = document.createElement("img");
+    let productDesc = document.createElement("div");
+    let titleProduct = document.createElement("span");
+    let lenseChoice = document.createElement("span");
+    let quantity = document.createElement("span");
+    let priceProduct = document.createElement("span");
+    let removeRow = document.createElement("button");
     
     // html attribution
-        storageContainer.setAttribute("class","col-12 d-flex");
-        pictureProduct.setAttribute("src",product.url);
-        titleProduct.setAttribute("class");
-        lenseChoice.setAttribute("p");
-        priceProduct.setAttribute("class");
-        quantityProduct.setAttribute("type","number");
-        quantityProduct.setAttribute("value",product.qty);
-        removeRow.setAttribute("class","btn btn-danger");
+    storageContainer.setAttribute("class","col-12 d-flex align-items-center");
+    productDesc.setAttribute("class","col-4 d-flex flex-column");
+    titleProduct.setAttribute("class","font-weight-bold");
+    lenseChoice.setAttribute("class","font-weight-bold");
+    quantity.setAttribute("class","col-4 text-center");
+    priceProduct.setAttribute("class","col-4 text-center ");
+    pictureProduct.setAttribute("src",result.url);
+    pictureProduct.setAttribute("width","30px");
+    pictureProduct.setAttribute("height","30px");
+    removeRow.setAttribute("class","btn btn-danger btnremove");
 
     // html creation
-        productCard.appendChild(storageContainer);
+        cardContainer.appendChild(storageContainer);
         storageContainer.appendChild(pictureProduct);
-        storageContainer.appendChild(titleProduct);
-        storageContainer.appendChild(lenseChoice);
+        storageContainer.appendChild(productDesc);
+        productDesc.appendChild(titleProduct);
+        productDesc.appendChild(lenseChoice);
+        storageContainer.appendChild(quantity);
         storageContainer.appendChild(priceProduct);
-        storageContainer.appendChild(quantityProduct);
-        quantityProduct.appendChild(quantitydetails);
         storageContainer.appendChild(removeRow);
 
-        titleProduct.textContent = product.name;
-        lenseChoice.textContent = product.lenses;
-        priceProduct.textContent = product.price / 100 + " €";
-
-        removeRow.textContent = "supprimer";
+        //textcontent
+        titleProduct.textContent = result.name;
+        priceProduct.textContent = result.price;
+        lenseChoice.textContent = result.lenses;
+        quantity.textContent = result.qty;
+        removeRow.textContent = "X";
     });
 };
+
+
+ const emptyCart = () => {
+    let cardContainer = document.querySelector("#shoppingReminder");
+    let emptyCartContainer = document.createElement("div")
+    let emptyCartMessage = document.createElement("h5");
+    emptyCartContainer.setAttribute("class", "col-12")
+    emptyCartMessage.setAttribute("class", "text-center font-weight-bold m-5")
+    cardContainer.appendChild(emptyCartContainer);
+    cardContainer.appendChild(emptyCartMessage);
+    emptyCartMessage.textContent = "Votre panier est vide";
+ };
+
+ if(productStorage === null){
+    emptyCart();
+}
+else{CartContent();
+};
+
 
 
 

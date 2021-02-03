@@ -1,16 +1,16 @@
 function camerasList(createCameras) {
-    var productList = document.querySelector("#productList");
+    let productList = document.querySelector("#productList");
 
     createCameras.forEach((camera)=>{
     //html building elements//
-    var productContainer = document.createElement("div");
-    var productLink = document.createElement("a");
-    var cardImg = document.createElement("img");
-    var productCardBody = document.createElement("div");
-    var productRef = document.createElement("div");
-    var productName = document.createElement("div");
-    var productPrice = document.createElement("div", "class");
-    var productDescription = document.createElement("div");
+    let productContainer = document.createElement("div");
+    let productLink = document.createElement("a");
+    let cardImg = document.createElement("img");
+    let productCardBody = document.createElement("div");
+    let productRef = document.createElement("div");
+    let productName = document.createElement("div");
+    let productPrice = document.createElement("div", "class");
+    let productDescription = document.createElement("div");
     // elements attribute//
     productContainer.setAttribute("class","col-4 border-secondary p-0 m-5 greybg ");
     cardImg.setAttribute("class","card-img-top img-fluid");
