@@ -19,15 +19,15 @@ const CartContent = () => {
     let removeRow = document.createElement("button");
     
     // html attribution
-    storageContainer.setAttribute("class","col-12 d-flex align-items-center");
+    storageContainer.setAttribute("class","col-12 d-flex align-items-center p-0");
     productDesc.setAttribute("class","col-4 d-flex flex-column");
     titleProduct.setAttribute("class","font-weight-bold");
     lenseChoice.setAttribute("class","font-weight-bold");
     quantity.setAttribute("class","col-4 text-center");
-    priceProduct.setAttribute("class","col-4 text-center ");
+    priceProduct.setAttribute("class","col-2 text-center font-weight-bold p-0 ml-3 ");
     pictureProduct.setAttribute("src",result.url);
-    pictureProduct.setAttribute("width","30px");
-    pictureProduct.setAttribute("height","30px");
+    pictureProduct.setAttribute("width","40px");
+    pictureProduct.setAttribute("height","40px");
     removeRow.setAttribute("class","btn btn-danger btnremove");
 
     // html creation
@@ -42,13 +42,12 @@ const CartContent = () => {
 
         //textcontent
         titleProduct.textContent = result.name;
-        priceProduct.textContent = result.price;
+        priceProduct.textContent = result.price + "€";
         lenseChoice.textContent = result.lenses;
         quantity.textContent = result.qty;
         removeRow.textContent = "X";
     });
 };
-
 
  const emptyCart = () => {
     let cardContainer = document.querySelector("#shoppingReminder");

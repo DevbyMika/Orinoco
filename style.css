@@ -39,6 +39,6 @@ h1{
 #addToCard{
     height: 38px;
 }
-.btnremove{
-    margin-left : -15px;
+#totalCard{
+    bottom: 0;
 }

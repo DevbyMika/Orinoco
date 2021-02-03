@@ -89,14 +89,28 @@
                         </div>
                     </form>
                 </div>
-                <div id="cartbasket" class="col-5 greybg mx-auto my-3 p-0 d-flex flex-column">
-                    <div class="col-12 d-flex flex-column justify-content-between">
-                            <div class="col d-flex justify-content-between">
+                <div id="cartbasket" class="col-5 greybg mx-auto my-3 p-0 d-flex flex-column position-relative">
+                    <div id="shoppingReminderContainer" class="col-12 d-flex flex-column justify-content-between h-75">
+                        <div class="col d-flex justify-content-between p-0">
                             <span id="title" class="col-4 font-weight-bold text-center mt-2 ">Articles</span>
                             <span id="title" class="col-4 font-weight-bold text-center mt-2 ">Quantité</span>
                             <span id="title" class="col-4 font-weight-bold text-center mt-2 ">Prix</span>
-                        </div>  
-                            <div id="shoppingReminder" class="col-12 p-0" ></div>
+                        </div>
+                        <div id="shoppingReminder" class="col-12 p-0" ></div>
+                        <div class="col-12 position-absolute p-0" id="totalCard">
+                            <div class="col d-flex justify-content-between p-0">
+                                <div class="col-4 subtotal">Sous total</div>
+                                <div class="col-4 subtotalcount p-0 mr-2"></div>
+                            </div>
+                            <div class="col d-flex justify-content-between p-0">
+                                <div class="col-9 delivery">Livraison</div>
+                                <div class=" col-3 deliverycount p-0 mr-2 ">Offerte</div>
+                            </div>
+                            <div class="col d-flex justify-content-between p-0">
+                                <div class=" col-4 total">Total</div>
+                                <div id="totalcount p-0 mr-2"></div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
