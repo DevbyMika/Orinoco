@@ -62,14 +62,14 @@
                         <h5 class="font-weight-bold text-center mt-2">Informations personnelles</h5>
                         <div class="form p-3">
                             <input type="email" class="form-control" id="exampleInputEmail" aria-describedby="emailHelp"
-                                placeholder="Adresse Email">
+                                placeholder="Adresse Email" required>
                         </div>
                         <div class="d-flex">
                             <div class="form p-3">
-                                <input type="text" class="form-control" id="Name" placeholder="Nom">
+                                <input type="text" class="form-control" id="Name" placeholder="Nom" required>
                             </div>
                             <div class="form p-3">
-                                <input type="text" class="form-control" id="Firstname" placeholder="Prénom">
+                                <input type="text" class="form-control" id="Firstname" placeholder="Prénom" required>
                             </div>
                         </div>
                         <div class="form p-3">
@@ -77,14 +77,14 @@
                         </div>
                         <div class="form p-3">
                             <input type="text" class="form-control" id="Adresse"
-                                placeholder="Adresse (rue, n° de maison, appart,...">
+                                placeholder="Adresse (rue, n° de maison, appart,..." required>
                         </div>
                         <div class="d-flex">
                             <div class="form p-3">
-                                <input type="text" class="form-control" id="CP" placeholder="Code Postal">
+                                <input type="text" class="form-control" id="CP" placeholder="Code Postal" required>
                             </div>
                             <div class="form p-3">
-                                <input type="text" class="form-control" id="City" placeholder="Ville">
+                                <input type="text" class="form-control" id="City" placeholder="Ville" required>
                             </div>
                         </div>
                     </form>
@@ -98,17 +98,17 @@
                         </div>
                         <div id="shoppingReminder" class="col-12 p-0" ></div>
                         <div class="col-12 position-absolute p-0" id="totalCard">
-                            <div class="col d-flex justify-content-between p-0">
-                                <div class="col-4 subtotal">Sous total</div>
-                                <div class="col-4 subtotalcount p-0 mr-2"></div>
+                            <div class="col d-flex justify-content-between  p-0">
+                                <div class="col-8 subtotal font-weight-bold pl-5">Sous total</div>
+                                <div id="subtotalcount" class="col-4 p-0 text-center"> 0 €</div>
                             </div>
-                            <div class="col d-flex justify-content-between p-0">
-                                <div class="col-9 delivery">Livraison</div>
-                                <div class=" col-3 deliverycount p-0 mr-2 ">Offerte</div>
+                            <div class="col d-flex justify-content-between p-0 ">
+                                <div class="col-8 delivery font-weight-bold pl-5">Livraison</div>
+                                <div id="deliverycost" class=" col-4 p-0 text-center"></div>
                             </div>
-                            <div class="col d-flex justify-content-between p-0">
-                                <div class=" col-4 total">Total</div>
-                                <div id="totalcount p-0 mr-2"></div>
+                            <div class="col d-flex justify-content-between p-0 ">
+                                <div class=" col-8 total font-weight-bold pl-5">Total</div>
+                                <div id="totalcount" class="col-4 p-0 font-weight-bold text-center"></div>
                             </div>
                         </div>
                     </div>
@@ -137,7 +137,7 @@
             </div>
     </div>
     <script type="text/javascript" src="./js/cart.js"></script>
-   <!--<script type="text/javascript" src="./js/api.js"></script>--> 
+   <script type="text/javascript" src="./js/api.js"></script> 
 
 </body>
 </html>

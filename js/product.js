@@ -95,18 +95,19 @@ async function createProductCard(product) {
         optionLense.textContent = productLenses[i];
         lensesOption.appendChild(optionLense);
         optionLense.textContent = productLenses[i];
-        }   
+        };
 
     addToCardBtn.addEventListener("click", function() {
-    let storage = window.localStorage.getItem("orinocoStorage") //storage space creation
+    let storage = localStorage.getItem("orinocoStorage"); //storage space creation
         if (!storage) {
             storage = {
                 products: [],
             }
         } else {
-            storage = JSON.parse(storage) //JSON exctract.
+            storage = JSON.parse(storage); //JSON exctract.
+            console.log(storage);
         }
-        storage.products.push({
+        storage.push({
             id: product._id,
             name: product.name,
             lenses : lenseSelection.value,
@@ -115,8 +116,8 @@ async function createProductCard(product) {
             descritpion: product.description,
             qty : quantityBox.value
             });
-        window.localStorage.setItem("orinocoStorage", JSON.stringify(storage))
-        console.log("localStorage", storage.products)
+        localStorage.setItem("orinocoStorage", JSON.stringify(storage));
+        console.log("localStorage", storage.products);
     });
 };
 

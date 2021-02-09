@@ -40,5 +40,7 @@ h1{
     height: 38px;
 }
 #totalCard{
-    bottom: 0;
+    border-top: 1px solid black;
+    left:0;
+    bottom: 1rem;
 }
