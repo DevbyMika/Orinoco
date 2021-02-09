@@ -1,24 +1,30 @@
+// ------------------------------Shopping cart---------------------------------------- //
+
+// Cart Shopping Creation
 const storage = JSON.parse(localStorage.getItem('orinocoStorage'));
 console.log(storage);
 
+
+// Answer message if shopping cart empty
 const emptyCart = () => {
     let cardContainer = document.querySelector("#shoppingReminder");
     let emptyCartContainer = document.createElement("div")
     let emptyCartMessage = document.createElement("h5");
-    emptyCartContainer.setAttribute("class", "col-12")
-    emptyCartMessage.setAttribute("class", "text-center font-weight-bold m-5")
+    emptyCartContainer.setAttribute("class", "emptycart position-absolute col-12 p-0")
+    emptyCartMessage.setAttribute("class", "col-12 text-center font-weight-bold align-middle p-0")
     cardContainer.appendChild(emptyCartContainer);
-    cardContainer.appendChild(emptyCartMessage);
+    emptyCartContainer.appendChild(emptyCartMessage);
     emptyCartMessage.textContent = "Votre panier est vide";
 };
 
+// Empty Cart condition
 if(storage.length === 0){
     emptyCart();
 }
 else{
     cartContent();
 };
-// loading local storage content
+// local storage content incrementation local storage 
 function cartContent ()  {
 
     storage.forEach((result) => {   
@@ -65,8 +71,8 @@ function cartContent ()  {
     removeRow.textContent = "X";
     });
 };
-
-
+//------------------------------------------------------------------------------------//
+//----------------------------------Shopping Price cart Count-------------------------//
 function updateCartTotal(){
     let cartItemContainer = document.querySelectorAll("#shoppingReminder")[0];
     let cartRows = cartItemContainer.querySelectorAll("#shoppingRow");
@@ -90,8 +96,10 @@ function updateCartTotal(){
     totalCount.innerHTML = (subTotal + deliveryCost) + "€";   
 };
 updateCartTotal();
+//------------------------------------------------------------------------------------//
+//----------------------------------Shopping cart modification------------------------//
 
-//remove btn
+//remove btn to delete item and update shopping cart
 function removeBtn() {
     let removeRowBtn = document.querySelectorAll("#removeBtn")
     for( let i = 0; i < removeRowBtn.length; i++){
@@ -108,8 +116,13 @@ function removeBtn() {
 }; 
 };
 removeBtn();
+//------------------------------------------------------------------------------------//
+//----------------------Order submission------------------------//
 
+let dataValid = document.querySelector("#purchaseBtn");
 
+//dataValid.addEventListener("submit", function(e){
+    
 
 
 

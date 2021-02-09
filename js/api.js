@@ -1,4 +1,4 @@
-// getDAta request form api
+//--------------------------getDAta request from API-------------------------//
 async function CamerasList() {
     try {
         let response = await fetch("http://localhost:3000/api/cameras" );
@@ -15,7 +15,8 @@ async function CamerasList() {
 }
 CamerasList();
 
-//get product details from api
+//--------------------------Get product details from API-------------------------//
+
 
 async function displayProduct() {
     const urlSearchId = (new URL(window.location).searchParams);
@@ -35,7 +36,9 @@ async function displayProduct() {
 }
 displayProduct();
 
-// send order to api 
+//--------------------------Send order to API-------------------------//
+
+
 
  
 

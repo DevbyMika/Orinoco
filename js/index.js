@@ -20,7 +20,7 @@ function camerasList(createCameras) {
     productName.setAttribute("class","font-weight-bold");
     productPrice.setAttribute("class","font-weight-bold");
     productDescription.setAttribute("class","mt-3 text-left");
-    productLink.setAttribute("href","product.html?id=" + camera._id);
+    productLink.setAttribute("href","./html/product.html?id=" + camera._id);
     productLink .setAttribute("class","btn btn-dark mt-3");
     //elmements html creation//
     productList.appendChild(productContainer);

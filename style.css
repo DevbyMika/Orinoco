@@ -44,3 +44,7 @@ h1{
     left:0;
     bottom: 1rem;
 }
+.emptycart{
+    position:absolute;
+    top:30%;
+}

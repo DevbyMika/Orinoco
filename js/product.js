@@ -45,7 +45,7 @@ async function createProductCard(product) {
     quantityBox.setAttribute("value","1")
     quantityBox.setAttribute("id","qty")
     quantityBox.setAttribute("min","1")
-    addToCardBtn.setAttribute("href","cart.html");
+    addToCardBtn.setAttribute("href","./html/cart.html");
     addToCardBtn.setAttribute("class","btn btn-dark mt-3");
     addToCardBtn.setAttribute("id","addToCard");
     addToCardBtn.setAttribute("data-toggle","modal");
