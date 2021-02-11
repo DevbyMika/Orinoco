@@ -1,24 +1,24 @@
 // ------------------------------Shopping cart---------------------------------------- //
 
 // Cart Shopping Creation
-const storage = JSON.parse(localStorage.getItem('orinocoStorage'));
+let getStorage = JSON.parse(localStorage.getItem('orinocoStorage'));
+let storage = getStorage.products;
 console.log(storage);
-
 
 // Answer message if shopping cart empty
 const emptyCart = () => {
     let cardContainer = document.querySelector("#shoppingReminder");
     let emptyCartContainer = document.createElement("div")
     let emptyCartMessage = document.createElement("h5");
-    emptyCartContainer.setAttribute("class", "emptycart position-absolute col-12 p-0")
-    emptyCartMessage.setAttribute("class", "col-12 text-center font-weight-bold align-middle p-0")
+    emptyCartContainer.setAttribute("class", "emptycart col-12 p-0 ||")
+    emptyCartMessage.setAttribute("class", "col-12 text-center font-weight-bold align-middle p-0 ||")
     cardContainer.appendChild(emptyCartContainer);
     emptyCartContainer.appendChild(emptyCartMessage);
     emptyCartMessage.textContent = "Votre panier est vide";
 };
 
 // Empty Cart condition
-if(storage.length === 0){
+if(storage.length == 0 || getStorage == 0){
     emptyCart();
 }
 else{
@@ -40,13 +40,13 @@ function cartContent ()  {
     let removeRow = document.createElement("button");
     
     // html attribution
-    storageContainer.setAttribute("class","col-12 d-flex align-items-center p-0");
+    storageContainer.setAttribute("class","col-12 d-flex align-items-center p-0 ||");
     storageContainer.setAttribute("id","shoppingRow");
     productDesc.setAttribute("class","col-4 d-flex flex-column");
     titleProduct.setAttribute("class","font-weight-bold");
     lenseChoice.setAttribute("class","font-weight-bold");
     quantity.setAttribute("class","col-4 text-center");
-    priceProduct.setAttribute("class","col-2 text-center font-weight-bold p-0 ml-3 productPrice ");
+    priceProduct.setAttribute("class","col-2 text-center font-weight-bold p-0 || ml-3 productPrice ");
     pictureProduct.setAttribute("src",result.url);
     pictureProduct.setAttribute("width","40px");
     pictureProduct.setAttribute("height","40px");
@@ -76,7 +76,7 @@ function cartContent ()  {
 function updateCartTotal(){
     let cartItemContainer = document.querySelectorAll("#shoppingReminder")[0];
     let cartRows = cartItemContainer.querySelectorAll("#shoppingRow");
-    let subTotal = 0;
+    let subTotal = 0 ;
     for (let i = 0 ; i<cartRows.length; i++){
         let cartRow = cartRows[i];
         let productPrice = cartRow.querySelectorAll(".productPrice")[0];
@@ -87,7 +87,7 @@ function updateCartTotal(){
     }
     let totalCount = document.querySelector("#totalcount");
     let delivery = document.querySelector("#deliverycost")
-    let deliveryCost =0;
+    let deliveryCost =0 ;
     if(deliveryCost == 0 || null){
         delivery.innerHTML = "Offerte";
     }else{
@@ -102,7 +102,7 @@ updateCartTotal();
 //remove btn to delete item and update shopping cart
 function removeBtn() {
     let removeRowBtn = document.querySelectorAll("#removeBtn")
-    for( let i = 0; i < removeRowBtn.length; i++){
+    for( let i = 0 ; i < removeRowBtn.length; i++){
         let clickRemove = removeRowBtn[i];
         let productTarget = storage[i];
         clickRemove.addEventListener("click", function(e){
@@ -120,10 +120,49 @@ removeBtn();
 //----------------------Order submission------------------------//
 
 let dataValid = document.querySelector("#purchaseBtn");
+dataValid.addEventListener("click", function(e){
+    e.preventDefault();
+    let email = document.querySelector("#inputEmail");
+    let lastName = document.querySelector("#name");
+    let firstName = document.querySelector("#firstName");
+    let address = document.querySelector("#address");
+    let cp  = document.querySelector("#cp");
+    let city = document.querySelector("#city");
 
-//dataValid.addEventListener("submit", function(e){
-    
+const productStorage = JSON.parse(localStorage.getItem("orinocoStorage"));
+let products = Object.values(productStorage.products).map(product=>
+    product._id);
+ 
+const order = {
+    "contact" : {
+    firstName : firstName.value,
+    lastName : lastName.value,
+    address : address.value,
+    city : city.value,
+    email : email.value
+},
+    "products" : products
+}; 
+console.log(order);
 
+let url = "http://localhost:3000/api/cameras/order";
+const requestOrder ={ 
+    method: "POST",
+    body: JSON.stringify(order),
+    headers: {"Content-Type": "application/json"}
+    }; 
+fetch(url , requestOrder) 
+    .then(response => response.json())
+    .then(response => {
+        console.log(response);
+        storeIdName(response);
+    })
+    .catch(error => alert("Erreur : " + error));
 
-
+    function storeIdName(data) {
+     localStorage.setItem("orderNumber", data.orderId);
+     localStorage.setItem("UserName", data.contact.firstName);
+    }
+ window.location.href = "./order.html";
+});
 

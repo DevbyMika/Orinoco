@@ -45,7 +45,7 @@ async function createProductCard(product) {
     quantityBox.setAttribute("value","1")
     quantityBox.setAttribute("id","qty")
     quantityBox.setAttribute("min","1")
-    addToCardBtn.setAttribute("href","./html/cart.html");
+    addToCardBtn.setAttribute("href","cart.html");
     addToCardBtn.setAttribute("class","btn btn-dark mt-3");
     addToCardBtn.setAttribute("id","addToCard");
     addToCardBtn.setAttribute("data-toggle","modal");
@@ -104,11 +104,10 @@ async function createProductCard(product) {
                 products: [],
             }
         } else {
-            storage = JSON.parse(storage); //JSON exctract.
-            console.log(storage);
+            storage = JSON.parse(storage);
         }
-        storage.push({
-            id: product._id,
+        storage.products.push({
+            _id: product._id,
             name: product.name,
             lenses : lenseSelection.value,
             price: product.price * quantityBox.value,
@@ -117,7 +116,7 @@ async function createProductCard(product) {
             qty : quantityBox.value
             });
         localStorage.setItem("orinocoStorage", JSON.stringify(storage));
-        console.log("localStorage", storage.products);
+        console.log("orinocoStorage", storage.products);
     });
 };
 
