@@ -48,3 +48,6 @@ h1{
     position:absolute;
     top:30%;
 }
+.btn:hover{
+    transform: scale(1.1);
+}

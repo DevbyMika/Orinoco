@@ -12,7 +12,7 @@ function camerasList(createCameras) {
     let productPrice = document.createElement("div", "class");
     let productDescription = document.createElement("div");
     // elements attribute//
-    productContainer.setAttribute("class","col-4 border-secondary p-0 m-5 greybg ");
+    productContainer.setAttribute("class","col-10 col-md-4 shadow border-secondary p-0 m-5 m-sm-0 greybg ");
     cardImg.setAttribute("class","card-img-top img-fluid");
     cardImg.setAttribute("src",camera.imageUrl);
     productCardBody.setAttribute("class","card-body text-center greybg");
