@@ -55,9 +55,9 @@
         </div>
     </header>
     <main>
-    <div class="container-fluid position-relative">
-            <div class="row ">
-                <div class="col-5 greybg mx-auto my-3 P-0">
+    <div class="container-fluid">
+            <div class="row d-flex flex-column-reverse flex-md-row">
+                <div class="col-12 col-md-5 greybg mx-auto my-3 p-0 shadow">
                     <form class="greybg">
                         <h5 class="font-weight-bold text-center mt-2">Informations personnelles</h5>
                         <div class="form p-3">
@@ -91,29 +91,28 @@
                         </div>
                     </form>
                 </div>
-                <div id="cartbasket" class="col-5 greybg mx-auto my-3 p-0 d-flex flex-column position-relative">
-                    <div id="shoppingReminderContainer" class="col-12 d-flex flex-column justify-content-between">
-                        <div class="col d-flex justify-content-between p-0">
-                            <span id="title" class="col-4 font-weight-bold text-center mt-2 ">Articles</span>
-                            <span id="title" class="col-4 font-weight-bold text-center mt-2 ">Quantité</span>
-                            <span id="title" class="col-4 font-weight-bold text-center mt-2 ">Prix</span>
-                        </div>
-                        <div id="shoppingReminder" class="col-12 p-0" ></div>
-                        <div class="col-12 position-absolute p-0" id="totalCard">
-                            <div class="col d-flex justify-content-between  p-0">
-                                <div class="col-8 subtotal font-weight-bold pl-5">Sous total</div>
-                                <div id="subtotalcount" class="col-4 p-0 text-center"> 0 €</div>
-                            </div>
-                            <div class="col d-flex justify-content-between p-0 ">
-                                <div class="col-8 delivery font-weight-bold pl-5">Livraison</div>
-                                <div id="deliverycost" class=" col-4 p-0 text-center"></div>
-                            </div>
-                            <div class="col d-flex justify-content-between p-0 ">
-                                <div class=" col-8 total font-weight-bold pl-5">Total</div>
-                                <div id="totalcount" class="col-4 p-0 font-weight-bold text-center"></div>
-                            </div>
-                        </div>
+                <div id="cartbasket" class="col-12 col-md-5 greybg mx-auto my-3 p-0 shadow position-relative">
+                    <div id = "shoppingCardTitles" class="col d-flex justify-content-between p-0">
+                        <span id="title" class="col-4 font-weight-bold text-center my-2 ">Articles</span>
+                        <span id="title" class="col-4 font-weight-bold text-center my-2 ">Quantité</span>
+                        <span id="title" class="col-4 font-weight-bold text-center my-2 ">Prix</span>
                     </div>
+                    <div id="shoppingReminderContainer" class="col-12 d-flex flex-column">
+                       <div id="shoppingReminder" class="col-12 p-0 my-3" ></div>
+                    </div>
+                    <div class="col-12 p-0 greybg " id="totalCard">
+                        <div class="col d-flex justify-content-between  p-0">
+                            <div class="col-8 subtotal font-weight-bold pl-5">Sous total</div>
+                            <div id="subtotalcount" class="col-4 p-0 text-center"> 0 €</div>
+                        </div>
+                        <div class="col d-flex justify-content-between p-0 ">
+                            <div class="col-8 delivery font-weight-bold pl-5">Livraison</div>
+                            <div id="deliverycost" class=" col-4 p-0 text-center"></div>
+                        </div>
+                        <div class="col d-flex justify-content-between p-0 ">
+                            <div class=" col-8 total font-weight-bold pl-5">Total</div>
+                            <div id="totalcount" class="col-4 p-0 font-weight-bold text-center"></div>
+                        </div>
                 </div>
             </div>
     </div>

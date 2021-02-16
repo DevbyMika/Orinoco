@@ -36,20 +36,3 @@ async function displayProduct() {
 }
 displayProduct();
 
-function sendOrder(){
-let url = "http://localhost:3000/api/cameras/order";
-    const requestOrder ={ 
-        method: "POST",
-           body: JSON.stringify(order),
-           headers: {
-           "Content-Type": "application/json"
-           }
-    }; 
-    console.log(requestOrder);
-    fetch(url , requestOrder) 
-           .then(response => response.json())
-           .then(response => {
-               console.log(response);
-           })
-           .catch(error => alert("Erreur : " + error));
- };

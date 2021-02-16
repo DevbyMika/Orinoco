@@ -1,9 +1,8 @@
 // ------------------------------Shopping cart---------------------------------------- //
 
 // Cart Shopping Creation
-let getStorage = JSON.parse(localStorage.getItem('orinocoStorage'));
-let storage = getStorage.products;
-console.log(storage);
+let storage = JSON.parse(localStorage.getItem('orinocoStorage'));
+
 
 // Answer message if shopping cart empty
 const emptyCart = () => {
@@ -16,9 +15,8 @@ const emptyCart = () => {
     emptyCartContainer.appendChild(emptyCartMessage);
     emptyCartMessage.textContent = "Votre panier est vide";
 };
-
 // Empty Cart condition
-if(storage.length == 0 || getStorage == 0){
+if(!storage || storage.products == 0){
     emptyCart();
 }
 else{
@@ -26,8 +24,8 @@ else{
 };
 // local storage content incrementation local storage 
 function cartContent ()  {
-
-    storage.forEach((result) => {   
+    let storageItems = storage.products
+    storageItems.forEach((result) => {   
     //DOM initialisation 
     let cardContainer = document.querySelector("#shoppingReminder");
     let storageContainer = document.createElement("div");
@@ -40,13 +38,13 @@ function cartContent ()  {
     let removeRow = document.createElement("button");
     
     // html attribution
-    storageContainer.setAttribute("class","col-12 d-flex align-items-center p-0 ||");
+    storageContainer.setAttribute("class","col-12 d-flex align-items-center p-0");
     storageContainer.setAttribute("id","shoppingRow");
     productDesc.setAttribute("class","col-4 d-flex flex-column");
     titleProduct.setAttribute("class","font-weight-bold");
     lenseChoice.setAttribute("class","font-weight-bold");
-    quantity.setAttribute("class","col-4 text-center");
-    priceProduct.setAttribute("class","col-2 text-center font-weight-bold p-0 || ml-3 productPrice ");
+    quantity.setAttribute("class","col-2 col-lg-4 text-center");
+    priceProduct.setAttribute("class","col-2 text-center font-weight-bold p-0 ml-3 productPrice ");
     pictureProduct.setAttribute("src",result.url);
     pictureProduct.setAttribute("width","40px");
     pictureProduct.setAttribute("height","40px");
@@ -101,14 +99,15 @@ updateCartTotal();
 
 //remove btn to delete item and update shopping cart
 function removeBtn() {
+    let StorageTarget = storage.products
     let removeRowBtn = document.querySelectorAll("#removeBtn")
     for( let i = 0 ; i < removeRowBtn.length; i++){
         let clickRemove = removeRowBtn[i];
-        let productTarget = storage[i];
+        let productTarget = StorageTarget[i];
         clickRemove.addEventListener("click", function(e){
-        let index = storage.indexOf(productTarget);
+        let index = StorageTarget.indexOf(productTarget);
         clickRemove.parentElement.remove();
-        storage.splice(index,1);
+        StorageTarget.splice(index,1);
         localStorage.setItem("orinocoStorage",JSON.stringify(storage));
         window.location.reload();
         updateCartTotal();
@@ -120,18 +119,19 @@ removeBtn();
 //----------------------Order submission------------------------//
 
 let dataValid = document.querySelector("#purchaseBtn");
+
 dataValid.addEventListener("click", function(e){
     e.preventDefault();
     let email = document.querySelector("#inputEmail");
     let lastName = document.querySelector("#name");
     let firstName = document.querySelector("#firstName");
     let address = document.querySelector("#address");
-    let cp  = document.querySelector("#cp");
     let city = document.querySelector("#city");
 
-const productStorage = JSON.parse(localStorage.getItem("orinocoStorage"));
-let products = Object.values(productStorage.products).map(product=>
+const storage = JSON.parse(localStorage.getItem("orinocoStorage"));
+let products = Object.values(storage.products).map(product=>
     product._id);
+console.log(products);
  
 const order = {
     "contact" : {
@@ -162,7 +162,7 @@ fetch(url , requestOrder)
     function storeIdName(data) {
      localStorage.setItem("orderNumber", data.orderId);
      localStorage.setItem("UserName", data.contact.firstName);
+     window.location.href = "./order.html";
     }
- window.location.href = "./order.html";
 });
 

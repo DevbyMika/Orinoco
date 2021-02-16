@@ -4,6 +4,9 @@
 body{
     font-family: "Lora", sans-serif;
 }
+ul{
+    padding: 0;
+}
 h1{
     font-size: 1.5rem;
 }
@@ -36,13 +39,11 @@ h1{
 .qtytitle{
     display: block;
 }
-#addToCard{
-    height: 38px;
-}
 #totalCard{
+    position:absolute;
     border-top: 1px solid black;
     left:0;
-    bottom: 1rem;
+    bottom: 0;
 }
 .emptycart{
     position:absolute;
@@ -50,4 +51,13 @@ h1{
 }
 .btn:hover{
     transform: scale(1.1);
+}
+#shoppingReminderContainer{
+    height:450px;
+    overflow: scroll;
+}
+@media only screen and (max-width: 768px){
+    #addToCard{
+        width: 100%;
+    }
 }
