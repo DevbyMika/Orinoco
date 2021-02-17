@@ -52,7 +52,7 @@ homeBtn.textContent = "Retour à l'accueil";
 
 //--------------------------Clear Order----------------------------//
 let clearStorageBtn = document.querySelector("#homeBtn")
-clearStorageBtn.addEventListener("click", function(e){
+clearStorageBtn.addEventListener("click", function clearStorage(e){
     localStorage.clear();
     window.location.href = "../index.html";
 });

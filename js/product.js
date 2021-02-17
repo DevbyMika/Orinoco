@@ -101,7 +101,7 @@ async function createProductCard(product) {
         optionLense.textContent = productLenses[i];
         };
 
-    addToCardBtn.addEventListener("click", function() {
+    addToCardBtn.addEventListener("click", function addToCard() {
     let storage = localStorage.getItem("orinocoStorage"); //storage space creation
         if (!storage) {
             storage = {

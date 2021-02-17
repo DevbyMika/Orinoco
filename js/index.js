@@ -1,4 +1,4 @@
-function camerasList(createCameras) {
+function camerasListItems(createCameras) {
     let productList = document.querySelector("#productList");
 
     createCameras.forEach((camera)=>{

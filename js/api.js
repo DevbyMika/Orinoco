@@ -5,7 +5,7 @@ async function CamerasList() {
         if (response.ok) {
             let cameras = await response.json();
             console.log(cameras);
-            camerasList(cameras);
+            camerasListItems(cameras);
         } else {
             console.error('server return: ', response.status)
         }
