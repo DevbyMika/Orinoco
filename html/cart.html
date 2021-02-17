@@ -58,36 +58,38 @@
     <div class="container-fluid">
             <div class="row d-flex flex-column-reverse flex-md-row">
                 <div class="col-12 col-md-5 greybg mx-auto my-3 p-0 shadow">
-                    <form class="greybg">
+                    <form id="dataUser" class="greybg">
                         <h5 class="font-weight-bold text-center mt-2">Informations personnelles</h5>
-                        <div class="form p-3">
-                            <input type="email" class="form-control" id="inputEmail" aria-describedby="emailHelp" placeholder="Adresse Email"
-                                required>
+                        <div class="p-3">
+                            <input type="email" class="form-control" id="inputEmail" aria-describedby="emailHelp" placeholder="Adresse Email">
                         </div>
                         <div class="d-flex">
-                            <div class="form p-3">
-                                <input type="text" class="form-control" id="name" placeholder="Nom" required>
+                            <div class="p-3">
+                                <input type="text" class="form-control" id="name" placeholder="Nom">
                             </div>
-                            <div class="form p-3">
-                                <input type="text" class="form-control" id="firstName" placeholder="Prénom" required>
+                            <div class="p-3">
+                                <input type="text" class="form-control" id="firstName" placeholder="Prénom">
                             </div>
                         </div>
-                        <div class="form p-3">
-                            <input type="text" class="form-control" id="tel" placeholder="Numéro de téléhphone (facultatif)">
+                        <div class=" p-3">
+                            <input type="text" class="form-control" id="tel" placeholder="Numéro de téléphone (facultatif)">
                         </div>
-                        <div class="form p-3">
-                            <input type="text" class="form-control" id="address" placeholder="Adresse (rue, n° de maison, appart,..." required>
+                        <div class=" p-3">
+                            <input type="text" class="form-control" id="address" placeholder="Adresse (rue, n° de maison, appart,...">
                         </div>
                         <div class="d-flex">
-                            <div class="form p-3">
-                                <input type="text" pattern="[0-9]{5}" class="form-control" id="cp" minlength="5" maxlength="5" placeholder="Code Postal (ex : 75000") required>
+                            <div class="p-3">
+                                <input type="text" pattern="[0-9]{5}" class="form-control" id="cp" minlength="5" maxlength="5" placeholder="Code Postal (ex : 75000")>
                             </div>
-                            <div class="form p-3">
-                                <input type="text" class="form-control text-center" id="city" placeholder="Ville" required>
+                            <div class="p-3">
+                                <input type="text" class="form-control text-center" id="city" placeholder="Ville">
                             </div>
                         </div>
                         <div class="text-center">
-                                 <input id="purchaseBtn" class="btn btn-dark my-2" type="submit" value="Commander"></input>
+                            <p id="error"></p>
+                        </div>
+                        <div class="text-center">
+                                 <button id="purchaseBtn" class="btn btn-dark my-2" type="button">Commander</button>
                         </div>
                     </form>
                 </div>

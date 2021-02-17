@@ -17,6 +17,14 @@ const emptyCart = () => {
 };
 // Empty Cart condition
 if(!storage || storage.products == 0){
+    function emptyCartStoreBtn(){
+    let homeBtn = document.querySelector("#purchaseBtn");
+    homeBtn.textContent = "Retour à l'accueil";
+    homeBtn.addEventListener("click",function(e){
+    window.location.href = "../index.html"
+    });
+}
+    emptyCartStoreBtn();
     emptyCart();
 }
 else{
@@ -117,16 +125,36 @@ function removeBtn() {
 removeBtn();
 //------------------------------------------------------------------------------------//
 //----------------------Order submission------------------------//
-
+function sendOrder(){    
 let dataValid = document.querySelector("#purchaseBtn");
+let error;
+let email = document.querySelector("#inputEmail");
+let lastName = document.querySelector("#name");
+let firstName = document.querySelector("#firstName");
+let address = document.querySelector("#address");
+let city = document.querySelector("#city");
 
-dataValid.addEventListener("click", function(e){
+
+dataValid.addEventListener("click", (e) =>{
     e.preventDefault();
-    let email = document.querySelector("#inputEmail");
-    let lastName = document.querySelector("#name");
-    let firstName = document.querySelector("#firstName");
-    let address = document.querySelector("#address");
-    let city = document.querySelector("#city");
+if(!city.value){
+    error = "Merci de renseigner votre ville";
+};
+if(!address.value){
+    error = "Merci de renseigner votre adresse";
+};
+if(!firstName.value){
+    error = "Merci de renseigner votre prénom";
+    };
+if(!lastName.value){
+    error = "Merci de renseigner votre Nom";
+    };
+if(!email.value){
+    error = "Merci de renseigner une adresse email valide";
+    };
+if (error){
+    document.querySelector("#error").innerHTML= error;
+};
 
 const storage = JSON.parse(localStorage.getItem("orinocoStorage"));
 let products = Object.values(storage.products).map(product=>
@@ -157,12 +185,14 @@ fetch(url , requestOrder)
         console.log(response);
         storeIdName(response);
     })
-    .catch(error => alert("Erreur : " + error));
+    .catch(error => console.log("Erreur : " + error));
 
     function storeIdName(data) {
      localStorage.setItem("orderNumber", data.orderId);
      localStorage.setItem("UserName", data.contact.firstName);
      window.location.href = "./order.html";
     }
-});
 
+});
+};
+sendOrder();
