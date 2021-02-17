@@ -7,6 +7,9 @@ body{
 ul{
     padding: 0;
 }
+.nav-link{
+    font-size: 1.2rem;
+}
 h1{
     font-size: 1.5rem;
 }
@@ -22,6 +25,9 @@ h1{
     display: flex;
     justify-content: center;
     flex-flow: wrap;
+}
+.productdetailpicture{
+    height:100%;
 }
 #itemQty{
     width: 30%;

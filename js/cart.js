@@ -51,12 +51,12 @@ function cartContent ()  {
     productDesc.setAttribute("class","col-4 d-flex flex-column");
     titleProduct.setAttribute("class","font-weight-bold");
     lenseChoice.setAttribute("class","font-weight-bold");
-    quantity.setAttribute("class","col-2 col-lg-4 text-center");
-    priceProduct.setAttribute("class","col-2 text-center font-weight-bold p-0 ml-3 productPrice ");
+    quantity.setAttribute("class","col-2 col-lg-3 col-xl-4 text-center");
+    priceProduct.setAttribute("class","col-2 text-center font-weight-bold px-3 productPrice ");
     pictureProduct.setAttribute("src",result.url);
     pictureProduct.setAttribute("width","40px");
     pictureProduct.setAttribute("height","40px");
-    removeRow.setAttribute("class","btn btn-danger");
+    removeRow.setAttribute("class","btn btn-danger ml-3");
     removeRow.setAttribute("id","removeBtn");
 
     // html creation
@@ -128,7 +128,8 @@ removeBtn();
 function sendOrder(){    
 let dataValid = document.querySelector("#purchaseBtn");
 let error;
-let email = document.querySelector("#inputEmail");
+let email = document.querySelector("#email");
+//let emailRegex = /^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/;
 let lastName = document.querySelector("#name");
 let firstName = document.querySelector("#firstName");
 let address = document.querySelector("#address");
@@ -149,7 +150,7 @@ if(!firstName.value){
 if(!lastName.value){
     error = "Merci de renseigner votre Nom";
     };
-if(!email.value){
+if(!email.value || email.validity.typeMismatch){
     error = "Merci de renseigner une adresse email valide";
     };
 if (error){

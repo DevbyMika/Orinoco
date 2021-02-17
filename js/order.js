@@ -24,10 +24,10 @@ let priceOrder = document.createElement("span");
 let delivery = document.createElement("span");
 let homeBtn = document.createElement("button");
 
-orderContainer.setAttribute("class", "col-8 mx-auto greybg d-flex flex-column align-items-center my-5");
-congrats.setAttribute("class", "font-weight-bold my-3");
-remindOrder.setAttribute("class", "font-weight-bold my-3");
-numberOrder.setAttribute("class", "font-weight-bold my-3");
+orderContainer.setAttribute("class", "col-12 mx-auto greybg d-flex flex-column align-items-center my-5");
+congrats.setAttribute("class", "font-weight-bold my-3 text-center");
+remindOrder.setAttribute("class", "font-weight-bold my-3 text-center");
+numberOrder.setAttribute("class", "font-weight-bold my-3 text-center");
 priceOrder.setAttribute("class", "totalPrice font-weight-bold my-3");
 homeBtn.setAttribute("class", "btn btn-dark my-3");
 delivery.setAttribute("class", "font-weight-bold my-3");

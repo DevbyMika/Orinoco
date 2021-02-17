@@ -19,31 +19,29 @@
 </head>
 <body>
     <header>
-        <div class="container-fluid">
-                <div class="row">
-                    <nav class="col navbar navbar-expand-lg navbar-light">
-                        <a class="navbar-brand" href="../index.html">
-                            <img src="../images/logoprop.png" width="100" height="40" alt="Orinoco logo">
-                        </a>
-                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarContent">
-                            <span class="navbar-toggler-icon"></span>
-                        </button>
-                        <div id="navbarContent" class="collapse navbar-collapse justify-content-end">
-                            <ul class="navbar-nav d-flex align-items-center justify-content-between">
-                                <li class="nav-item">
-                                    <a class="nav-link active" href="../index.html">Accueil</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </nav>
-                    <div class="d-flex align-items-center greybg pr-3">
-                        <a class="shoppingcard" href="cart.html">
-                            <img src="../images/cart.png" width="30" height="30" alt="panier">
-                        </a>
-                        <p id="itemsCount" class="m-0">0</p>
-                    </div>
+        <div class="container-fluid greybg">
+            <div class="row">
+                <div class="col-12 greybg text-center">
+                    <a class="navbar-brand" href="../index.html">
+                        <img src="../images/logoprop.png" width="140" height="60" alt="Orinoco logo">
+                    </a>
                 </div>
-        </div>
+            </div>
+            <div class="row">
+                <nav class="col navbar navbar-expand-lg navbar-light d-flex justify-content-center">
+                        <ul class="navbar-nav d-flex flex-row align-items-center justify-content-between">
+                            <li class="nav-item pr-3">
+                                <a class="nav-link active" href="../index.html">Accueil</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" href="./html/cart.html">Panier<img src="../images/cart.png" width="20" height="20" alt="panier">
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+    </div>
         <div class="container-fluid">
             <div class="row">
                 <div class="col-12 p-0">
@@ -61,7 +59,7 @@
                     <form id="dataUser" class="greybg">
                         <h5 class="font-weight-bold text-center mt-2">Informations personnelles</h5>
                         <div class="p-3">
-                            <input type="email" class="form-control" id="inputEmail" aria-describedby="emailHelp" placeholder="Adresse Email">
+                            <input name="email" type="email" class="form-control" id="email" pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{1,63}$" aria-describedby="emailHelp" placeholder="Adresse Email" required="">
                         </div>
                         <div class="d-flex">
                             <div class="p-3">
@@ -93,13 +91,13 @@
                         </div>
                     </form>
                 </div>
-                <div id="cartbasket" class="col-12 col-md-5 greybg mx-auto my-3 p-0 shadow position-relative">
+                <div id="cartbasket" class="col-12 col-md-5 greybg mx-auto my-3 pl-1 shadow position-relative">
                     <div id = "shoppingCardTitles" class="col d-flex justify-content-between p-0">
                         <span id="title" class="col-4 font-weight-bold text-center my-2 ">Articles</span>
                         <span id="title" class="col-4 font-weight-bold text-center my-2 ">Quantité</span>
                         <span id="title" class="col-4 font-weight-bold text-center my-2 ">Prix</span>
                     </div>
-                    <div id="shoppingReminderContainer" class="col-12 d-flex flex-column">
+                    <div id="shoppingReminderContainer" class="col-12 d-flex flex-column p-0">
                        <div id="shoppingReminder" class="col-12 p-0 my-3" ></div>
                     </div>
                     <div class="col-12 p-0 greybg " id="totalCard">

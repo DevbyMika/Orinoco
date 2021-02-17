@@ -29,7 +29,7 @@ async function createProductCard(product) {
     productContainer.setAttribute("class","row d-flex flex-column flex-md-row greybg m-4 shadow");
     productPictContainer.setAttribute("class","col-12 col-md-6 p-3");
     productPicture.setAttribute("src",product.imageUrl);
-    productPicture.setAttribute("class", "card-img-top img-flui")
+    productPicture.setAttribute("class", "productdetailpicture card-img-top img-flui")
     productDescContainer.setAttribute("class","col-12 col-md-6 p-3 d-flex flex-column justify-content-between");
     productDescContainer.setAttribute("id","ProductContainer");
     productRef.setAttribute("class","d-flex justify-content-between");
@@ -38,12 +38,12 @@ async function createProductCard(product) {
     productPrice.setAttribute("id","price");
     containerBtn.setAttribute("class","d-flex flex-column justify-content-between");
     containerSelection.setAttribute("class","d-flex justify-content-between");
-    lensesForm.setAttribute("class", "form-group pr-4 d-flex align-items-center");
+    lensesForm.setAttribute("class", "form-group pr-4 d-lg-flex align-items-center");
     lensesOption.setAttribute("id", "lenseSelection");
-    lensesLabel.setAttribute("class", "pr-3");
+    lensesLabel.setAttribute("class", "pr-3 m-0");
     lensesOption.setAttribute("class", "form-control");
-    quantityForm.setAttribute("class", "form-group text-center d-flex align-items-center pr-5");
-    quantityLabel.setAttribute("class", "qtytitle");
+    quantityForm.setAttribute("class", "form-group text-center d-lg-flex align-items-center");
+    quantityLabel.setAttribute("class", "qtytitle m-0");
     quantityBox.setAttribute("type","number")
     quantityBox.setAttribute("value","1")
     quantityBox.setAttribute("id","qty")
