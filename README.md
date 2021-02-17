@@ -8,7 +8,7 @@ Cinquième étape de la formation developpeur web d'Openclassroom consitant à r
 
 Un cahier des charges complet nous est fournit:
 
-![alt text](https://github.com/Arrymane/WAWRZICZNYMIKAEL_02_05112020/blob/main/Images/Maquette/Desktop.png)
+![alt text](https://github.com/DevbyMika/Orinoco/blob/main/P5_Sp%C3%A9cifications%20fonctionnelles%20Orinoco%20(2).pdf)
 
 ### Complément sur la réalisation:
 
