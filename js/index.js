@@ -1,3 +1,4 @@
+// display Cameras on home page
 function camerasListItems(createCameras) {
     let productList = document.querySelector("#productList");
 
@@ -5,6 +6,7 @@ function camerasListItems(createCameras) {
     //html building elements//
     let productContainer = document.createElement("div");
     let productLink = document.createElement("a");
+    let cardImgLink = document.createElement("a");
     let cardImg = document.createElement("img");
     let productCardBody = document.createElement("div");
     let productRef = document.createElement("div");
@@ -13,6 +15,7 @@ function camerasListItems(createCameras) {
     let productDescription = document.createElement("div");
     // elements attribute//
     productContainer.setAttribute("class","col-10 col-md-4 shadow border-secondary p-0 m-5 greybg");
+    cardImgLink.setAttribute("href","./html/product.html?id=" + camera._id);
     cardImg.setAttribute("class","card-img-top img-fluid");
     cardImg.setAttribute("src",camera.imageUrl);
     productCardBody.setAttribute("class","card-body text-center greybg");
@@ -24,7 +27,8 @@ function camerasListItems(createCameras) {
     productLink .setAttribute("class","btn btn-dark mt-3");
     //elmements html creation//
     productList.appendChild(productContainer);
-    productContainer.appendChild(cardImg);
+    productContainer.appendChild(cardImgLink);
+    cardImgLink.appendChild(cardImg);
     productContainer.appendChild(productCardBody);
     productCardBody.appendChild(productRef)
     productRef.appendChild(productName);

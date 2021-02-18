@@ -1,6 +1,6 @@
 //--------------------------getDAta request from API-------------------------//
 async function CamerasList() {
-    try {
+       try {
         let response = await fetch("http://localhost:3000/api/cameras" );
         if (response.ok) {
             let cameras = await response.json();

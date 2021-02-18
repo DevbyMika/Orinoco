@@ -105,7 +105,7 @@ updateCartTotal();
 //------------------------------------------------------------------------------------//
 //----------------------------------Shopping cart modification------------------------//
 
-//remove btn to delete item and update shopping cart
+//remove btn to delete item and update shopping cart 
 function removeBtn() {
     let StorageTarget = storage.products
     let removeRowBtn = document.querySelectorAll("#removeBtn")
@@ -129,13 +129,12 @@ function sendOrder(){
 let dataValid = document.querySelector("#purchaseBtn");
 let error;
 let email = document.querySelector("#email");
-//let emailRegex = /^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/;
 let lastName = document.querySelector("#name");
 let firstName = document.querySelector("#firstName");
 let address = document.querySelector("#address");
 let city = document.querySelector("#city");
 
-
+// dataUser validation
 dataValid.addEventListener("click", (e) =>{
     e.preventDefault();
 if(!city.value){
@@ -157,6 +156,7 @@ if (error){
     document.querySelector("#error").innerHTML= error;
 };
 
+// order Creation
 const storage = JSON.parse(localStorage.getItem("orinocoStorage"));
 let products = Object.values(storage.products).map(product=>
     product._id);
@@ -173,7 +173,7 @@ const order = {
     "products" : products
 }; 
 console.log(order);
-
+// API POST Request
 let url = "http://localhost:3000/api/cameras/order";
 const requestOrder ={ 
     method: "POST",
@@ -187,6 +187,8 @@ fetch(url , requestOrder)
         storeIdName(response);
     })
     .catch(error => console.log("Erreur : " + error));
+
+// Get data et order page redirection
 
     function storeIdName(data) {
      localStorage.setItem("orderNumber", data.orderId);
