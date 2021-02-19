@@ -132,24 +132,28 @@ let email = document.querySelector("#email");
 let lastName = document.querySelector("#name");
 let firstName = document.querySelector("#firstName");
 let address = document.querySelector("#address");
+let cp = document.querySelector("#cp");
 let city = document.querySelector("#city");
 
 // dataUser validation
 dataValid.addEventListener("click", (e) =>{
     e.preventDefault();
-if(!city.value){
+if(!city.value || city.validity.typeMismatch){
     error = "Merci de renseigner votre ville";
 };
-if(!address.value){
+if(!cp.value || city.validity.patternMismatch){
+    error = "Merci de renseigner un code postal valide";
+};
+if(!address.value || address.validity.patternMismatch){
     error = "Merci de renseigner votre adresse";
 };
-if(!firstName.value){
+if(!firstName.value || firstName.validity.patternMismatch){
     error = "Merci de renseigner votre prénom";
     };
-if(!lastName.value){
+if(!lastName.value || lastName.validity.patternMismatch){
     error = "Merci de renseigner votre Nom";
     };
-if(!email.value || email.validity.typeMismatch){
+if(!email.value || email.validity.patternMismatch){
     error = "Merci de renseigner une adresse email valide";
     };
 if (error){

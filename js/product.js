@@ -1,4 +1,23 @@
-////Product cameras sheet creation//
+async function displayProduct() {
+    const urlSearchId = (new URL(window.location).searchParams);
+    productId = urlSearchId.get("id")
+    try {
+        let url = "http://localhost:3000/api/cameras/" + productId;
+        let response = await fetch(url);
+        if (response.ok) {
+            let cameraProduct = await response.json();
+            createProductCard(cameraProduct);
+        } else {
+            console.error('server return: ', response.status)
+        }
+    } catch (e) {
+        console.log(e);
+    }
+}
+displayProduct();
+
+
+//Product cameras sheet creation//
 
 async function createProductCard(product) {
     

@@ -51,8 +51,10 @@ delivery.textContent = "A bientôt sur Orinoco";
 homeBtn.textContent = "Retour à l'accueil"; 
 
 //--------------------------Clear Order----------------------------//
-let clearStorageBtn = document.querySelector("#homeBtn")
-clearStorageBtn.addEventListener("click", function clearStorage(e){
-    localStorage.clear();
+//----Cleaning LocalStorage//
+localStorage.clear();
+
+let HomePageTarget = document.querySelector("#homeBtn")
+HomePageTarget.addEventListener("click", function HomePageTarget(e){
     window.location.href = "../index.html";
 });
