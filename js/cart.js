@@ -138,7 +138,7 @@ let city = document.querySelector("#city");
 // dataUser validation
 dataValid.addEventListener("click", (e) =>{
     e.preventDefault();
-if(!city.value || city.validity.typeMismatch){
+if(!city.value || city.validity.patternMismatch){
     error = "Merci de renseigner votre ville";
 };
 if(!cp.value || city.validity.patternMismatch){
