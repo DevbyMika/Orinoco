@@ -67,7 +67,7 @@ h1{
 }
 /* Firefox */
 input[type=number] {
-    -moz-appearance: textfield;
+    -moz-appearance:textfield;
 }
 
 /* Chrome */

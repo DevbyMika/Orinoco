@@ -134,11 +134,12 @@ let firstName = document.querySelector("#firstName");
 let address = document.querySelector("#address");
 let cp = document.querySelector("#cp");
 let city = document.querySelector("#city");
+let tel = document.querySelector("#tel");
 
 // dataUser validation
 dataValid.addEventListener("click", (e) =>{
     e.preventDefault();
-if(!city.value || city.validity.patternMismatch){
+if(!city.value || city.validity.typeMismatch){
     error = "Merci de renseigner votre ville";
 };
 if(!cp.value || city.validity.patternMismatch){
@@ -146,6 +147,9 @@ if(!cp.value || city.validity.patternMismatch){
 };
 if(!address.value || address.validity.patternMismatch){
     error = "Merci de renseigner votre adresse";
+};
+if(!tel.value || tel.validity.typeMismatch){
+    error = "Votre numéro de être composé exclusivement de chiffres";
 };
 if(!firstName.value || firstName.validity.patternMismatch){
     error = "Merci de renseigner votre prénom";
