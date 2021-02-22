@@ -148,8 +148,8 @@ if(!cp.value || city.validity.patternMismatch){
 if(!address.value || address.validity.patternMismatch){
     error = "Merci de renseigner votre adresse";
 };
-if(!tel.value || tel.validity.typeMismatch){
-    error = "Votre numéro de être composé exclusivement de chiffres";
+if(tel.validity.typeMismatch){
+    error = "Votre numéro doit être composé exclusivement de chiffres";
 };
 if(!firstName.value || firstName.validity.patternMismatch){
     error = "Merci de renseigner votre prénom";
